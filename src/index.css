@@ -1,0 +1,286 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+.todo-list{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+}
+.box-card{
+  background-color: white;
+  width: 90%;
+  height: 5rem;
+  border: 1px solid;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.card-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  margin: 3px;
+  padding: 3px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.title-todo{
+  margin: 0;
+}
+.text-todo{
+  margin: 0;
+  color: black;
+}
+.btn-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly
+}
+.todo-page{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+}
+.btn-todo-page{
+  width: 5rem;
+  height: 2rem;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-todo-submit{
+  width: 5rem;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #5264AE;
+  color: white;
+}
+.tp-container{
+  margin: 10px;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.todo-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.todo-input{
+  border-radius: 15px;
+}
+.toogle-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.toogle-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.toogle-list{
+  width: 50%;
+  height: 20%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #9ae4db9a;
+  border-radius: 25px;
+
+}
+
+input 				{
+  font-size:18px;
+  display:block;
+  width:100%;
+  border:none;
+  padding: 5px;
+}
+input:focus 		{ outline:none; }
+
+
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:100%; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#5264AE; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:45%;
+}
+.bar:after {
+  right:45%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+select:focus{
+  border: 3px solid #5264AE ;
+
+}
+select option {
+  color: #5264AE;
+  /* hover on select */
+}
+
+/* media query */
+@media screen and (max-width: 1200px) {
+  body{
+    height: 0;
+  }
+}
+@media screen and (max-width: 660px) {
+  body{
+    height: 0;
+  }
+  .tp-container {
+    margin: 10px;
+    width: 100%;
+    height: 50%;
+    display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.todo-form {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+}
+
+@media screen and (max-width: 425px) {
+  .tp-container {
+    margin: 10px;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.todo-form {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+}
+
+@media screen and (max-width: 375px) {
+  .tp-container {
+    margin: 10px;
+    width: 90%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.todo-form {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+}
+@media screen and (max-width: 320px) {
+  
+  .tp-container {
+    margin: 10px;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.todo-form {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+}
